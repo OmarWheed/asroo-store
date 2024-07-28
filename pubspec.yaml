@@ -41,6 +41,14 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_launcher_icons: ^0.13.1
 
+flutter_launcher_icons:
+  image_path: 'assets/icons/app_icon.jpg'
+  android: "launcher_icon"
+  ios: true
+  adaptive_icon_background: "#000000"
+  android_icon_foreground: "assets/icons/circle_icon.png"
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
