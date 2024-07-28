@@ -7,28 +7,17 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //env
+  //init env
   await EnvVariable.instance.init(type: EnvTypeEnum.dev);
-  //firebase
+  //init firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  //portrait
+  //portrait Device Orientation
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then(
     (_) {
-      runApp(const MyApp());
+      runApp(const AsrooStoreApp());
     },
   );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: EnvVariable.instance.debugMode,
-      home: const AsrooStoreApp(),
-    );
-  }
 }
