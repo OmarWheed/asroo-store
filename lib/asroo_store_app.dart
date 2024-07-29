@@ -1,5 +1,7 @@
 import 'package:asroo_store/core/app/connectivity_controller.dart';
 import 'package:asroo_store/core/common/screens/no_network_screen.dart';
+import 'package:asroo_store/core/style/fonts/font_family_helper.dart';
+import 'package:asroo_store/core/style/fonts/font_wegiht_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,11 +31,43 @@ class AsrooStoreApp extends StatelessWidget {
                       ),
                     );
                   },
-                  home: const Scaffold(
-                    body: Center(
-                      child: Text("omar"),
-                    ),
-                  ),
+                  home: Scaffold(
+                      appBar: AppBar(
+                        title: const Text('Asroo Store'),
+                        centerTitle: true,
+                      ),
+                      body: SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          children: [
+                            Text(
+                              "Old Font",
+                              style: TextStyle(fontSize: 20.sp),
+                            ),
+                            Text(
+                              "خط قديم",
+                              style: TextStyle(fontSize: 20.sp),
+                            ),
+                            SizedBox(
+                              height: 50.h,
+                            ),
+                            Text(
+                              "New Font",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: FontFamilyHelper.poppinsEnglish,
+                                  fontWeight: FontWeightHelper.regular),
+                            ),
+                            Text(
+                              "خط جديد",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: FontFamilyHelper.cairoArabic,
+                                  fontWeight: FontWeightHelper.regular),
+                            ),
+                          ],
+                        ),
+                      )),
                 );
               });
         } else {
