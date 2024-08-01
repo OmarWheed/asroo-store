@@ -7,16 +7,17 @@ version: 1.0.0+1
 environment:
   sdk: '>=3.4.4 <4.0.0'
 dependencies:
-  flutter:
-    sdk: flutter
+  connectivity_plus: ^6.0.3
 
   cupertino_icons: ^1.0.6
   firebase_core: ^3.2.0
+  flutter:
+    sdk: flutter
   flutter_dotenv: ^5.1.0
-  connectivity_plus: ^6.0.3
-  flutter_screenutil: ^5.9.3
   flutter_launcher_icons: ^0.13.1
+  flutter_localization: ^0.2.0
   flutter_native_splash: ^2.4.1
+  flutter_screenutil: ^5.9.3
 
 flutter_launcher_icons:
   image_path: 'assets/icons/app_icon.jpg'
@@ -25,13 +26,11 @@ flutter_launcher_icons:
   adaptive_icon_background: "#000000"
   android_icon_foreground: "assets/icons/circle_icon.png"
 
-
 dev_dependencies:
+  flutter_lints: ^3.0.0
+
   flutter_test:
     sdk: flutter
-
-
-  flutter_lints: ^3.0.0
 
 flutter:
 
@@ -41,24 +40,23 @@ flutter:
     - .env.dev
     - .env.prod
     - assets/images/core/
- 
+    - lang/
 
   fonts:
     - family: Cairo
       fonts:
         - asset: assets/fonts/arabic/cairo/Cairo-Regular.ttf
-          weight: 700      
+          weight: 700
         - asset: assets/fonts/arabic/cairo/Cairo-Medium.ttf
-          weight: 500      
+          weight: 500
         - asset: assets/fonts/arabic/cairo/Cairo-Bold.ttf
-          weight: 400      
+          weight: 400
 
     - family: Poppins
       fonts:
         - asset: assets/fonts/english/poppins/Poppins-Regular.ttf
-          weight: 700      
+          weight: 700
         - asset: assets/fonts/english/poppins/Poppins-Medium.ttf
-          weight: 500      
+          weight: 500
         - asset: assets/fonts/english/poppins/Poppins-Bold.ttf
-          weight: 400      
-
+          weight: 400

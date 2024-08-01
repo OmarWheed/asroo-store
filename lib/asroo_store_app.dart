@@ -1,5 +1,6 @@
 import 'package:asroo_store/core/app/connectivity_controller.dart';
 import 'package:asroo_store/core/common/screens/no_network_screen.dart';
+import 'package:asroo_store/core/language/app_localizations_setup.dart';
 import 'package:asroo_store/core/routes/app_routes.dart';
 import 'package:asroo_store/core/style/theme/app_theme.dart';
 
@@ -21,17 +22,31 @@ class AsrooStoreApp extends StatelessWidget {
               // Use builder only if you need to use library outside ScreenUtilInit context
               builder: (_, child) {
                 return MaterialApp(
-                  theme: themeDark(),
+                  theme: themeLight(),
                   initialRoute: AppRoutes.testOne,
                   onGenerateRoute: AppRoutes.onGenerate,
+                  supportedLocales: LocaleInit.supportedLocales,
+                  localeResolutionCallback: (deviceLocale, supportedLocales) {
+                    for (final locale in supportedLocales) {
+                      if (deviceLocale != null &&
+                          locale.languageCode == deviceLocale.languageCode) {
+                        return locale;
+                      }
+                    }
+                    return supportedLocales.first;
+                  },
+                  localizationsDelegates: LocaleInit.localizationsDelegates,
                   title: 'Asroo Store',
                   builder: (context, widget) {
-                    return Scaffold(
-                      body: Builder(
-                        builder: (context) {
-                          ConnectivityController.instance.init();
-                          return widget!;
-                        },
+                    return GestureDetector(
+                      onTap: ()=> FocusManager.instance.primaryFocus!.unfocus(),
+                      child: Scaffold(
+                        body: Builder(
+                          builder: (context) {
+                            ConnectivityController.instance.init();
+                            return widget!;
+                          },
+                        ),
                       ),
                     );
                   },
