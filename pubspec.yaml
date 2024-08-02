@@ -41,6 +41,9 @@ flutter:
     - .env.prod
     - assets/images/core/
     - lang/
+    - assets/svg/
+    - assets/images/customer/
+    - assets/images/admin/
 
   fonts:
     - family: Cairo

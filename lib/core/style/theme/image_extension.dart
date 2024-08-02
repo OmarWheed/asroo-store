@@ -2,25 +2,45 @@ import 'package:asroo_store/core/style/images/app_images_name.dart';
 import 'package:flutter/material.dart';
 
 class MyImage extends ThemeExtension<MyImage> {
-  final String? image;
+const MyImage({
+    required this.bigNavBar,
+    required this.homeBg,
+  });
 
-  const MyImage({required this.image});
+  final String? bigNavBar;
+  final String? homeBg;
 
   @override
-  ThemeExtension<MyImage> copyWith() {
-    return MyImage(image: image);
+  ThemeExtension<MyImage> copyWith({
+    String? bigNavBar,
+    String? homeBg,
+  }) {
+    return MyImage(
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
+    );
   }
 
   @override
   ThemeExtension<MyImage> lerp(
-      covariant ThemeExtension<MyImage>? other, double t) {
+    covariant ThemeExtension<MyImage>? other,
+    double t,
+  ) {
     if (other is! MyImage) {
       return this;
     }
-    return MyImage(image: image);
+    return MyImage(
+      bigNavBar: bigNavBar,
+      homeBg: homeBg,
+    );
   }
 
-  static const MyImage light =  MyImage(image: AppImagesName.lightTest);
-
-  static const MyImage dark =  MyImage(image: AppImagesName.darkTest);
+  static const MyImage dark = MyImage(
+    bigNavBar: AppImagesName.bigIconNavBarDark,
+    homeBg: AppImagesName.homeBgDark,
+  );
+  static const MyImage light = MyImage(
+    bigNavBar: AppImagesName.bigIconNavBarLight,
+    homeBg: AppImagesName.homeBgLight,
+  );
 }

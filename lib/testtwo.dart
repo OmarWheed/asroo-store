@@ -18,7 +18,7 @@ class TestTwo extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: context.color.mainColor),
             ),
           ),
-          Image.asset(context.image.image ?? '')
+         
         ],
       ),
     );
