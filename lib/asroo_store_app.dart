@@ -22,8 +22,8 @@ class AsrooStoreApp extends StatelessWidget {
               // Use builder only if you need to use library outside ScreenUtilInit context
               builder: (_, child) {
                 return MaterialApp(
-                  theme: themeLight(),
-                  initialRoute: AppRoutes.testOne,
+                  theme: themeDark(),
+                  initialRoute: AppRoutes.login,
                   onGenerateRoute: AppRoutes.onGenerate,
                   supportedLocales: LocaleInit.supportedLocales,
                   localeResolutionCallback: (deviceLocale, supportedLocales) {
@@ -55,22 +55,18 @@ class AsrooStoreApp extends StatelessWidget {
                         title: const Text('Asroo Store'),
                         centerTitle: true,
                       ),
-                      body: SizedBox(
+                      body: const SizedBox(
                         width: double.infinity,
                         child: Column(
                           children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context)
-                                      .pushNamed(AppRoutes.testTwo);
-                                },
-                                child: const Text("Go to "))
+                           
                           ],
                         ),
                       )),
                 );
               });
         } else {
+          //! no network connection available
           return const MaterialApp(
               title: 'no Network', home: NoNetworkScreen());
         }
