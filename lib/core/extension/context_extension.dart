@@ -9,7 +9,8 @@ extension ContextExtension on BuildContext {
 
   //! image
   MyImage get image => Theme.of(this).extension<MyImage>()!;
-
+  //!text 
+  TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
   //!Navigation
   Future<dynamic> pushNamed({required String routeName, arg}) {
     return Navigator.of(this).pushNamed(routeName, arguments: arg);

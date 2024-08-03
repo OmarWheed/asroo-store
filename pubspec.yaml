@@ -27,8 +27,8 @@ flutter_launcher_icons:
   android_icon_foreground: "assets/icons/circle_icon.png"
 
 dev_dependencies:
+  animate_do: ^3.3.4
   flutter_lints: ^3.0.0
-
   flutter_test:
     sdk: flutter
 
@@ -41,6 +41,9 @@ flutter:
     - .env.prod
     - assets/images/core/
     - lang/
+    - assets/svg/
+    - assets/images/customer/
+    - assets/images/admin/
 
   fonts:
     - family: Cairo
