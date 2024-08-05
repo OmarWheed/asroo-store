@@ -23,7 +23,7 @@ class AsrooStoreApp extends StatelessWidget {
               builder: (_, child) {
                 return MaterialApp(
                   theme: themeDark(),
-                  initialRoute: AppRoutes.login,
+                  initialRoute: AppRoutes.signUp,
                   onGenerateRoute: AppRoutes.onGenerate,
                   supportedLocales: LocaleInit.supportedLocales,
                   localeResolutionCallback: (deviceLocale, supportedLocales) {

@@ -2,8 +2,8 @@ import 'package:asroo_store/core/animations/animate_do.dart';
 import 'package:asroo_store/core/common/widget/text_app.dart';
 import 'package:asroo_store/core/extension/context_extension.dart';
 import 'package:asroo_store/core/language/lang_keys.dart';
-import 'package:asroo_store/core/style/fonts/font_family_helper.dart';
 import 'package:asroo_store/core/style/fonts/font_wegiht_helper.dart';
+import 'package:asroo_store/core/style/images/app_images_name.dart';
 import 'package:asroo_store/features/auth/widget/auth_title_info.dart';
 import 'package:asroo_store/features/auth/widget/dark_and_lang_button.dart';
 import 'package:asroo_store/features/auth/widget/login/login_button.dart';
@@ -35,7 +35,9 @@ class LoginBody extends StatelessWidget {
             SizedBox(
               height: 30.h,
             ),
-            const LoginButton(),
+            const CustomRegisterButton(
+              title: LangKeys.login,
+            ),
             SizedBox(
               height: 15.h,
             ),
@@ -48,10 +50,21 @@ class LoginBody extends StatelessWidget {
                     fontWeight: FontWeightHelper.bold,
                     color: context.color.bluePinkLight,
                   )),
-            )
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class UserProfile extends StatelessWidget {
+  const UserProfile({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const CircleAvatar(
+        radius: 38,
+        backgroundImage:  AssetImage(AppImagesName.userAvatar),
+        child:  Icon(Icons.camera_alt_rounded));
   }
 }
