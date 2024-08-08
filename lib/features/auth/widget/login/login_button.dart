@@ -2,7 +2,7 @@ import 'package:asroo_store/core/animations/animate_do.dart';
 import 'package:asroo_store/core/common/widget/custom_linear_button.dart';
 import 'package:asroo_store/core/common/widget/text_app.dart';
 import 'package:asroo_store/core/extension/context_extension.dart';
-import 'package:asroo_store/core/style/fonts/font_wegiht_helper.dart';
+import 'package:asroo_store/core/style/fonts/font_weight_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +18,7 @@ class CustomRegisterButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         onPressed: () {},
         child: TextApp(
-          text: title.tr(context),
+          text: context.translate(title),
           theme: context.textStyle
               .copyWith(fontSize: 18.sp, fontWeight: FontWeightHelper.bold),
         ),

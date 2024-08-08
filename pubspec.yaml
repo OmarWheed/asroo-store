@@ -31,7 +31,9 @@ dependencies:
   freezed: ^2.5.2
   freezed_annotation: ^2.4.4
 
-
+  #animation
+  animate_do: ^3.3.4
+  get_it: ^7.7.0
 
   #flutter icons 
 flutter_launcher_icons:
@@ -42,8 +44,7 @@ flutter_launcher_icons:
   android_icon_foreground: "assets/icons/circle_icon.png"
 
 dev_dependencies:
-  #animation
-  animate_do: ^3.3.4
+  
   #generation and modular compilation.
   build_runner: ^2.4.11
   

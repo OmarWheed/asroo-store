@@ -1,4 +1,6 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:asroo_store/core/services/shared/shared_keys.dart';
+import 'package:asroo_store/core/services/shared/shared_pref.dart';
 import 'package:flutter/material.dart';
 
 class CustomFadeInDown extends StatelessWidget {
@@ -56,19 +58,17 @@ class CustomFadeInLeft extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-    // SharedPref().getString(PrefKeys.language) == 'ar'
-        //? 
-        FadeInLeft(
+    return SharedPref().getString(SharedKeys.language) == 'ar'
+        ? FadeInLeft(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          )
+        : FadeInRight(
             delay: const Duration(milliseconds: 300),
             duration: Duration(milliseconds: duration),
             child: child,
           );
-        // : FadeInRight(
-        //     delay: const Duration(milliseconds: 300),
-        //     duration: Duration(milliseconds: duration),
-        //     child: child,
-        //   );
   }
 }
 
@@ -85,18 +85,16 @@ class CustomFadeInRight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-//SharedPref().getString(PrefKeys.language) == 'ar'
-        //? 
-        FadeInRight(
+    return SharedPref().getString(SharedKeys.language) == 'ar'
+        ? FadeInRight(
+            delay: const Duration(milliseconds: 300),
+            duration: Duration(milliseconds: duration),
+            child: child,
+          )
+        : FadeInLeft(
             delay: const Duration(milliseconds: 300),
             duration: Duration(milliseconds: duration),
             child: child,
           );
-        // : FadeInLeft(
-        //     delay: const Duration(milliseconds: 300),
-        //     duration: Duration(milliseconds: duration),
-        //     child: child,
-        //   );
   }
 }

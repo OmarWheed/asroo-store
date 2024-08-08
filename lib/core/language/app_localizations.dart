@@ -1,47 +1,41 @@
-import 'dart:convert';
+import 'dart:convert' show json;
+
+import 'package:asroo_store/core/language/app_localizations_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AppLocalizations {
-  final Locale? locale;
+  AppLocalizations(this.locale);
+  final Locale locale;
 
-  AppLocalizations({required this.locale});
-
+  // Static method to retrieve the AppLocalizations instance
+  // from the nearest BuildContext.
   static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  late Map<String, String> _localeString;
+  // Static constant that holds the delegate for this localization.
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      AppLocalizationsDelegate();
 
-  Future loadJson() async {
-    String jsonString =
-        await rootBundle.loadString('lang/${locale?.languageCode}.json');
-    Map<String, dynamic> jsonMap = jsonDecode(jsonString);
-    _localeString = jsonMap.map((key, value) {
+  // Map to store the localized strings.
+  late Map<String, String> _localizedStrings;
+
+  // Method to load the localized strings from JSON files.
+  Future<void> load() async {
+    final jsonString =
+        await rootBundle.loadString('lang/${locale.languageCode}.json');
+
+    final jsonMap = json.decode(jsonString) as Map<String, dynamic>;
+
+    _localizedStrings = jsonMap.map<String, String>((key, value) {
       return MapEntry(key, value.toString());
     });
   }
 
-  String translate(String key) => _localeString[key] ?? '';
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationDelegate();
-}
+  // Method to translate a given key into the corresponding localized string.
+  String? translate(String key) => _localizedStrings[key];
 
-class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationDelegate();
-  @override
-  bool isSupported(Locale locale) {
-    return ['en', 'ar'].contains(locale.languageCode);
-  }
-
-  @override
-  Future<AppLocalizations> load(Locale locale) async {
-    AppLocalizations appLocalizations = AppLocalizations(locale: locale);
-    await appLocalizations.loadJson();
-    return appLocalizations;
-  }
-
-  @override
-  bool shouldReload(covariant LocalizationsDelegate<AppLocalizations> old) =>
-      false;
+  // Getter method to check if the current locale is English.
+  bool get isEnLocale => locale.languageCode == 'en';
 }

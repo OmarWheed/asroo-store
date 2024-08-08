@@ -2,7 +2,8 @@ import 'package:asroo_store/core/animations/animate_do.dart';
 import 'package:asroo_store/core/common/widget/text_app.dart';
 import 'package:asroo_store/core/extension/context_extension.dart';
 import 'package:asroo_store/core/language/lang_keys.dart';
-import 'package:asroo_store/core/style/fonts/font_wegiht_helper.dart';
+import 'package:asroo_store/core/routes/app_routes.dart';
+import 'package:asroo_store/core/style/fonts/font_weight_helper.dart';
 import 'package:asroo_store/features/auth/refactor/login_body.dart';
 import 'package:asroo_store/features/auth/widget/auth_title_info.dart';
 import 'package:asroo_store/features/auth/widget/dark_and_lang_button.dart';
@@ -28,7 +29,7 @@ class SignInBody extends StatelessWidget {
               title: LangKeys.signUp,
               description: LangKeys.signUpWelcome,
             ),
-             SizedBox(
+            SizedBox(
               height: 5.h,
             ),
             const UserProfile(),
@@ -47,13 +48,17 @@ class SignInBody extends StatelessWidget {
             ),
             CustomFadeInDown(
               duration: 400,
-              child: TextApp(
-                  text: LangKeys.youHaveAccount.tr(context),
-                  theme: context.textStyle.copyWith(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeightHelper.bold,
-                    color: context.color.bluePinkLight,
-                  )),
+              child: GestureDetector(
+                onTap: () =>
+                    context.pushReplacementNamed(routeName: AppRoutes.login),
+                child: TextApp(
+                    text: context.translate(LangKeys.youHaveAccount),
+                    theme: context.textStyle.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      color: context.color.bluePinkLight,
+                    )),
+              ),
             )
           ],
         ),
