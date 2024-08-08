@@ -4,12 +4,17 @@ import 'package:asroo_store/core/style/theme/image_extension.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExtension on BuildContext {
+  //! translate
+  String translate(String langkey) {
+    return AppLocalizations.of(this)!.translate(langkey).toString();
+  }
+
   //! color
   MyColors get color => Theme.of(this).extension<MyColors>()!;
 
   //! image
   MyImage get image => Theme.of(this).extension<MyImage>()!;
-  //!text 
+  //!text
   TextStyle get textStyle => Theme.of(this).textTheme.displaySmall!;
   //!Navigation
   Future<dynamic> pushNamed({required String routeName, arg}) {
@@ -26,10 +31,4 @@ extension ContextExtension on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
-}
-
-extension translateEx on String {
-  String tr(BuildContext context) {
-    return AppLocalizations.of(context)!.translate(this);
-  }
 }

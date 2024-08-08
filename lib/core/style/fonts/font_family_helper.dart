@@ -1,3 +1,6 @@
+import 'package:asroo_store/core/services/shared/shared_keys.dart';
+import 'package:asroo_store/core/services/shared/shared_pref.dart';
+
 class FontFamilyHelper {
   FontFamilyHelper._();
 
@@ -5,7 +8,7 @@ class FontFamilyHelper {
   static const String poppinsEnglish = 'Poppins';
 
   static String getLocalizedFontFamily() {
-    String currentFont = 'ar';
+    String currentFont = SharedPref().getString(SharedKeys.language)!;
     if (currentFont == 'ar') {
       return cairoArabic;
     }

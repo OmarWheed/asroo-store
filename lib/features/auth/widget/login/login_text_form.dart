@@ -24,11 +24,11 @@ class _LoginTextFormState extends State<LoginTextForm> {
             duration: 400,
             child: CustomTextField(
               controller: TextEditingController(),
-              hintText: LangKeys.email.tr(context),
+              hintText: (context.translate(LangKeys.email)),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (!AppRegex.isEmailValid("")) {
-                  return LangKeys.validEmail.tr(context);
+                  return (context.translate(LangKeys.validEmail));
                 }
                 return null;
               },
@@ -40,11 +40,11 @@ class _LoginTextFormState extends State<LoginTextForm> {
             child: CustomTextField(
               controller: TextEditingController(),
               obscureText: showPassword,
-              hintText: LangKeys.password.tr(context),
+              hintText: (context.translate(LangKeys.password)),
               keyboardType: TextInputType.visiblePassword,
               validator: (value) {
                 if (value == null || value.isEmpty || value.length < 6) {
-                  return LangKeys.validPassword.tr(context);
+                  return (context.translate(LangKeys.validPassword));
                 }
                 return null;
               },

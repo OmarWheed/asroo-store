@@ -2,7 +2,8 @@ import 'package:asroo_store/core/animations/animate_do.dart';
 import 'package:asroo_store/core/common/widget/text_app.dart';
 import 'package:asroo_store/core/extension/context_extension.dart';
 import 'package:asroo_store/core/language/lang_keys.dart';
-import 'package:asroo_store/core/style/fonts/font_wegiht_helper.dart';
+import 'package:asroo_store/core/routes/app_routes.dart';
+import 'package:asroo_store/core/style/fonts/font_weight_helper.dart';
 import 'package:asroo_store/core/style/images/app_images_name.dart';
 import 'package:asroo_store/features/auth/widget/auth_title_info.dart';
 import 'package:asroo_store/features/auth/widget/dark_and_lang_button.dart';
@@ -43,13 +44,16 @@ class LoginBody extends StatelessWidget {
             ),
             CustomFadeInDown(
               duration: 400,
-              child: TextApp(
-                  text: LangKeys.createAccount.tr(context),
-                  theme: context.textStyle.copyWith(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeightHelper.bold,
-                    color: context.color.bluePinkLight,
-                  )),
+              child: GestureDetector(
+                onTap:()=>context.pushReplacementNamed(routeName:AppRoutes.signUp),
+                child: TextApp(
+                    text: context.translate(LangKeys.createAccount),
+                    theme: context.textStyle.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      color: context.color.bluePinkLight,
+                    )),
+              ),
             ),
           ],
         ),
