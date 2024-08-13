@@ -8,7 +8,7 @@ class FontFamilyHelper {
   static const String poppinsEnglish = 'Poppins';
 
   static String getLocalizedFontFamily() {
-    String currentFont = SharedPref().getString(SharedKeys.language)!;
+    String? currentFont = SharedPref().getString(SharedKeys.language);
     if (currentFont == 'ar') {
       return cairoArabic;
     }
